@@ -1,0 +1,46 @@
+.project_labels {
+  /* border: 2px solid blue; */
+  width: 45%;
+  margin: 2px;
+  float: left;
+  height: 40px;
+}
+
+.selectProject {
+  /* border: 2px solid red; */
+  margin: 2px;
+  height: 40px;
+  padding-top: 2px;
+}
+
+.project_select {
+  width: 40%;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+}
+
+table {
+  border: 1px solid red;
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}

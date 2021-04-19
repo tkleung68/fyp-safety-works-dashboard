@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import Cookies from "js-cookie";
+import Home from "./components/Home";
+import Worker from "./components/Worker";
+import Project from "./components/Project";
+import AboutUs from "./components/AboutUs";
 
 function App() {
+  // console.log("Current " + Cookies.get("login_status"));
+  var login_status = false;
+  if (Cookies.get("login_status") === "true") {
+    login_status = true;
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Route exact path="/">
+          {login_status ? <Redirect to="/worker" /> : <Home />}
+        </Route>
+        <Route exact path="/worker">
+          {login_status ? <Worker /> : <Redirect to="/" />}
+        </Route>
+        <Route exact path="/project">
+          {login_status ? <Project /> : <Redirect to="/" />}
+        </Route>
+        <Route exact path="/aboutus">
+          <AboutUs />
+        </Route>
+      </BrowserRouter>
     </div>
   );
 }
